@@ -11,6 +11,7 @@ import "exceptions.dart";
 import "enums.dart";
 import "protocol.dart";
 import "authentication.dart";
+import 'package:logging/logging.dart';
 
 part "client/connection_settings.dart";
 

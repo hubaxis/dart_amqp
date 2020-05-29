@@ -1,6 +1,9 @@
 part of dart_amqp.client;
 
 class _ClientImpl implements Client {
+
+  static final Logger logger = new Logger("AMPQ_ClientImpl");
+
   // Configuration options
   ConnectionSettings settings;
 
@@ -149,7 +152,8 @@ class _ClientImpl implements Client {
             .forEach((_ChannelImpl channel) =>
                 channel._completeOperation(serverMessage.message));
       }
-    } catch (e) {
+    } catch (e, st) {
+      logger.severe(()=>"Unhandled error in _ClientImpl",e, st);
       _handleException(e);
     }
   }
